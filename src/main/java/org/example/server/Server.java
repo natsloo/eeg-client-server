@@ -28,6 +28,7 @@ public class Server {
     }
 
     public void listen() throws IOException {
+        System.out.println("SERVER STARTED\n");
         running = true;
         while (running) {
             Socket socket = ss.accept();
@@ -44,8 +45,8 @@ public class Server {
         for (int i = 0; i < parts.length; i++) {
             values[i] = Double.parseDouble(parts[i]);
         }
-        System.out.println(Arrays.toString(values));
-        System.out.println(getBase64(values));
+        //System.out.println(Arrays.toString(values));
+        //System.out.println(getBase64(values));
         insertIntoDB(username,n,getBase64(values));
     }
 
@@ -87,6 +88,10 @@ public class Server {
         }
 
     }
+
+    public void stop(){
+        running=false;
     }
+}
 
 

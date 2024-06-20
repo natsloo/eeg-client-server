@@ -2,6 +2,7 @@ package org.example.server;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class ClientHandler implements Runnable {
@@ -21,8 +22,8 @@ public class ClientHandler implements Runnable {
         username = input.nextLine();
         String line;
         int i=0;
-        while ((line=input.nextLine())!="Bye"){
-            System.out.println(line);
+        while (!Objects.equals(line = input.nextLine(), "Bye")){
+            System.out.println("Processing line: " + line + "\n");
             server.parseLine(line,username,i);
             i++;
         }

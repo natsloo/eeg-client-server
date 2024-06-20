@@ -16,7 +16,8 @@ public class Client {
         client.sendData(name,filepath);
     }
         public void sendData(String name, String filepath) {
-            try {
+            System.out.println("SENDING DATA\n");
+        try {
                 Socket socket = new Socket("localhost", 2137);
                 writer = new PrintWriter(socket.getOutputStream());
                 send(name);
@@ -25,7 +26,7 @@ public class Client {
                 String line;
                 while ((line = reader.readLine()) != null) {
                     lines.add(line);
-                    System.out.println(line);
+                    //System.out.println(line);
                 }
 
                 for (String l : lines) {
